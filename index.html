@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="timer"> 
+            
+        </div>
+        <div class="quiz">
+            <h1>JavaScript Quiz, 25 questions</h1>
+            <div calss="question_container">
+                <h2 id="question">question will be here</h2>
+            </div>
+            <div id="answers">
+                <button class="answer" id="answer1">answer1</button>
+                <button class="answer" id="answer2">answer2</button>
+                <button class="answer" id="answer3">answer3</button>
+                <button class="answer" id="answer4">answer4</button>
+            </div>
+            <div id="result">
+            
+            </div>
+            <div class="navigation">
+                <button class="Previous_question" onclick="display_previous()">Previous_question</button>
+                <button class="evaluate">Evaluate the answer</button>
+                <button class="next_question" onclick="display_next()">Next Question</button>
+            </div>
+
+        </div>
+        
+    </div>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
