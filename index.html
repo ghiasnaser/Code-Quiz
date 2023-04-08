@@ -8,33 +8,51 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <div class="container">
+    <section class="container">
         <div id="timer"> 
             
         </div>
-        <div class="quiz">
+        <div id="main_page">
+            <h1>Read the fowllwing instruction befor starting the test</h1>
+            <p id="p1">You have a timer of 1 minute will start when you press the start button.</p>
+            <p id="p2">by the end of the test you will be asked to enter your initial.</p>
+            <p id="p3">you will be able to see you result and compaier it with the highst score.</p>
+            <button id="start" >Start the test</button>
+        </div>
+        <div id="quiz">
             <h1>JavaScript Quiz, 25 questions</h1>
             <div calss="question_container">
                 <h2 id="question">question will be here</h2>
             </div>
             <div id="answers">
-                <button class="answer" id="answer1">answer1</button>
-                <button class="answer" id="answer2">answer2</button>
-                <button class="answer" id="answer3">answer3</button>
-                <button class="answer" id="answer4">answer4</button>
+                <button class="answer" id="answer1" ></button>
+                <button class="answer" id="answer2" ></button>
+                <button class="answer" id="answer3" ></button>
+                <button class="answer" id="answer4" ></button>
             </div>
             <div id="result">
             
             </div>
-            <div class="navigation">
-                <button class="Previous_question" onclick="display_previous()">Previous_question</button>
-                <button class="evaluate">Evaluate the answer</button>
-                <button class="next_question" onclick="display_next()">Next Question</button>
-            </div>
-
+           
         </div>
-        
-    </div>
+        <div id="game-over">
+            <h1>All done</h1>
+            <p id="score">fffffffff</p>
+            <form>
+                <label for="Initial">Enter your Initial:</label>
+                <input type="text" id="initial">
+                <input type="submit" id="submit_button" value="Submit">
+            </form>
+        </div>
+        <div id="final_result">
+            <h1>Highscores</h1>
+            <ol id="score_list">
+                
+            </ol>
+            <button id="go_back">Go Back</button>
+            <button id="clear">Clear Highscores</button>
+        </div>
+    </section>
     <script src="./assets/script.js"></script>
 </body>
 </html>
