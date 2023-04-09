@@ -10,7 +10,7 @@ var clearEl=document.getElementById("clear"); // clear highscore button
 var listEL=document.querySelector("#score_list"); // the list element that contain the high scores
 var startEl=document.querySelector("#start"); // start button element
 var questionNB =0; // the question number of the question we dispaly now 
-var secondsLeft = 60; // timer duration 1 minute
+var secondsLeft = 600; // timer duration 1 minute
 var high_score=[]; // array of objects to hold the high scores
 var score=0; // holding the score for current person
 // array of objects for the test questions
@@ -42,7 +42,9 @@ var questions=[{
 }];
 
 var question_grade=(100/questions.length); // the wight of each question whis is 100 divided by total number of questions
-high_score=JSON.parse(localStorage.getItem("string_result"));//we assign the local memory item which contain the reult until know to the array of high scores
+if (localStorage.getItem("string_result")!=null){
+    high_score=JSON.parse(localStorage.getItem("string_result"));//we assign the local memory item which contain the reult until now to the array of high scores
+}
 
 // function that display the question and the answers on the screen 
 function display_question(id){
@@ -99,14 +101,14 @@ function stop_timer(){
     // and we will add the grade of this question to the score value
     if (selected_answer == correct_answer){
         result.innerHTML="correct";
-        result.style.backgroundColor="green";
+        result.style.color="green";
         score+=question_grade;
     }
     // if the selected answer is worng, then we will display wrong word with red background color
     //then we will subtract 15 seconds from the rest seconds of the test 
     else{
         result.innerHTML="wrong";
-        result.style.backgroundColor="red";
+        result.style.color="red";
         // if the time left is > 15, then we will subtract 15 seconds
         if(secondsLeft>15){
             secondsLeft-=15;
@@ -119,6 +121,7 @@ function stop_timer(){
             timeEl.textContent = secondsLeft + " seconds left";
             document.getElementById("quiz").style.display="none";
             document.getElementById("game-over").style.display="block";
+            document.getElementById("score").textContent="Your score is: " + score;
             return;
         }
     }   
@@ -136,13 +139,20 @@ function stop_timer(){
         stop_timer();
         document.getElementById("quiz").style.display="none";
         document.getElementById("game-over").style.display="block";  
+        document.getElementById("score").textContent="Your score is: " + score;
     }
 }
 
 // this function is to add the initial and the score of the current person to the result array
 // it will add the result in the right place of the array so we will get a descending array according to the score of each one
 function add_result(initial,final_grade){
-    var i=high_score.length; // the length of the current high score array
+    console.log(high_score);
+    if (high_score != null){
+        var i=high_score.length; // the length of the current high score array
+    }
+    else{
+        i=0;
+    }
     // a new object that will hold the result of the test
     var new_result={
         name:initial,
@@ -162,9 +172,9 @@ function add_result(initial,final_grade){
     }
     // otherwise we will look for the object which has the smaller score than the current person and we will insert the current object righ infort of it.
     else{
-        for (var i=1; i < high_score.length-1; i++){
-            if(new_result.final_score >= high_score[i].final_score){
-                high_score.splice(i,0,new_result);
+        for (var j=1; j < high_score.length-1; j++){
+            if(new_result.final_score >= high_score[j].final_score){
+                high_score.splice(j,0,new_result);
                 break;
             }
 
@@ -174,7 +184,7 @@ function add_result(initial,final_grade){
 
 // this is the function that will start displaying the questions and start the timer after we press the start button
 function hideunhide(){
-    console.log(localStorage.getItem("string_result"));
+    console.log(high_score);
     document.getElementById("quiz").style.display="block";
     document.getElementById("main_page").style.display="none";
     setTime();
@@ -237,7 +247,11 @@ answer4.addEventListener("click", function (event){
 submit_button.addEventListener("click",function(event){
     event.preventDefault();
     event.currentTarget;
-    var name=document.getElementById("initial").value;
+    var name=document.getElementById("initial").value.toUpperCase();
+    if(name==""){
+        alert("You cann't submit empty initial");
+        return;
+    }
     add_result(name,score);
     localStorage.setItem("string_result",JSON.stringify(high_score));
     display_high_score();
@@ -255,7 +269,6 @@ go_back.addEventListener("click",function(event){
     score=0;
     result.innerHTML="";
     timeEl.textContent ="";
-    result.style.background="white";
     document.getElementById("final_result").style.display="none";
     document.getElementById("main_page").style.display="block"; 
 })
