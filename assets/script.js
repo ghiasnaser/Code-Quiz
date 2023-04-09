@@ -10,7 +10,7 @@ var clearEl=document.getElementById("clear"); // clear highscore button
 var listEL=document.querySelector("#score_list"); // the list element that contain the high scores
 var startEl=document.querySelector("#start"); // start button element
 var questionNB =0; // the question number of the question we dispaly now 
-var secondsLeft = 600; // timer duration 1 minute
+var secondsLeft = 60; // timer duration 1 minute
 var high_score=[]; // array of objects to hold the high scores
 var score=0; // holding the score for current person
 // array of objects for the test questions
