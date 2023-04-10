@@ -10,7 +10,7 @@ var clearEl=document.getElementById("clear"); // clear highscore button
 var listEL=document.querySelector("#score_list"); // the list element that contain the high scores
 var startEl=document.querySelector("#start"); // start button element
 var questionNB =0; // the question number of the question we dispaly now 
-var secondsLeft = 60; // timer duration 1 minute
+
 var high_score=[]; // array of objects to hold the high scores
 var score=0; // holding the score for current person
 // array of objects for the test questions
@@ -42,6 +42,8 @@ var questions=[{
 }];
 
 var question_grade=(100/questions.length); // the wight of each question whis is 100 divided by total number of questions
+var secondsLeft = questions.length * 15; // timer duration it will be related to the number of the questions, 15 seconds for each question
+
 if (localStorage.getItem("string_result")!=null){
     high_score=JSON.parse(localStorage.getItem("string_result"));//we assign the local memory item which contain the reult until now to the array of high scores
 }
@@ -184,7 +186,7 @@ function add_result(initial,final_grade){
 
 // this is the function that will start displaying the questions and start the timer after we press the start button
 function hideunhide(){
-    console.log(high_score);
+    document.getElementById("first_header").innerHTML=questions.length + " Questions of JavaScript";
     document.getElementById("quiz").style.display="block";
     document.getElementById("main_page").style.display="none";
     setTime();
@@ -265,7 +267,7 @@ go_back.addEventListener("click",function(event){
     event.preventDefault();
     event.currentTarget;
     questionNB =0;
-    secondsLeft = 60;
+    secondsLeft = questions.length * 15;
     score=0;
     result.innerHTML="";
     timeEl.textContent ="";

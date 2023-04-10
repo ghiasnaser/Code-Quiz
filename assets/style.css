@@ -2,11 +2,12 @@
     padding: 0PX;
     margin: 0PX;
 }
-body{
+HTML , body{
     background: linear-gradient( green, yellow);
-    padding-bottom: 17%;
+    height: 100%;
     color: purple;
     font-size: larger;
+
 }
 .container{
 
@@ -16,17 +17,17 @@ body{
 #quiz {
     display: none;
     text-align: center;
-    background: linear-gradient( green, yellow);
     width: 100%;
     height: 100%;
 }
+
 #main_page h1 {
     padding: 2%;
 }
 #main_page ul{
     text-align: left;
     padding: 5px;
-    padding-left: 28%;
+    padding-left: 24%;
     font-size: larger;
 }
 #start{
@@ -107,46 +108,11 @@ h1{
     padding-bottom: 4%;
     user-select: none;
 }
-.evaluate {
-    margin-right: 2%;
-    margin-left: 2%;
-    background-color:rgb(205, 154, 154);
-    width: 150px;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 10px;
-    user-select: none;
-}
-.evaluate:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 1rem rgb(249, 234, 149));
-}
-.next_question{
-    background-color:rgb(205, 154, 154);
-    width: 150px;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 10px;
-    user-select: none;
-}
-.next_question:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 1rem rgb(249, 234, 149));
-}
-.Previous_question{
-    background-color:rgb(205, 154, 154);
-    width: 150px;
-    height: 40px;
-    font-weight: bold;
-    border-radius: 10px;
-    user-select: none;
-}
-.Previous_question:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 1rem rgb(249, 234, 149));
-}
+
 #game-over{
     display: none;
+    width: 100%;
+    height: 100%;
 }
 #game-over h1{
     text-align: left;
@@ -161,6 +127,7 @@ h1{
     text-align: left;
     margin-left: 30%;
     font-size: x-large;
+    padding-bottom: 9%;
 }
 #initial{
     margin-left: 5px;
@@ -188,6 +155,9 @@ h1{
 }
 #final_result{
     display: none;
+    width: 100%;
+    height: 100%;
+    background: none;
 }
 #final_result h1{
     text-align: left;
@@ -201,9 +171,11 @@ h1{
     height: 30px;
     width: 100px;
     margin-right: 2%;
-    font-size: larger;
+    font-size: large;
+    font-weight: bold;
     background-color: bisque;
     border-radius: 10px;
+
 }
 #go_back:hover{
     transform: scale(1.09);
@@ -211,7 +183,8 @@ h1{
 #clear{
     height: 30px;
     width: 200px;
-    font-size: larger;
+    font-size: large;
+    font-weight: bold;
     background-color: bisque;
     border-radius: 10px;
 }
