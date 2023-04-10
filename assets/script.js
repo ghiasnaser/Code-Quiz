@@ -148,7 +148,6 @@ function stop_timer(){
 // this function is to add the initial and the score of the current person to the result array
 // it will add the result in the right place of the array so we will get a descending array according to the score of each one
 function add_result(initial,final_grade){
-    console.log(high_score);
     if (high_score != null){
         var i=high_score.length; // the length of the current high score array
     }
